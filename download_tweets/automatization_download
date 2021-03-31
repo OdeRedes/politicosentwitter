@@ -1,0 +1,14 @@
+library(taskscheduleR)
+library(shiny)
+library(miniUI)}
+
+#le aclaramos el script que queremos automatizar
+myscript <- "~/download_tweets.R"
+
+#elegimos un nombre, el archivo, la frecuencia, el horario y la fecha de comienzo:
+
+taskscheduler_create(taskname = "download_daily_poltweet", rscript = myscript, 
+                     schedule = "DAILY", starttime = "03:00", 
+                     startdate = format(Sys.Date(), "%d/%m/%Y"))
+#podemos eliminar la tarea:
+# taskscheduler_delete("download_daily_poltweet")
